@@ -1,0 +1,3 @@
+SELECT dname FROM domains
+JOIN users AS u USING (user_id)
+WHERE u.name = 'Иван Иванов';
