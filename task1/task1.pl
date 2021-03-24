@@ -14,12 +14,10 @@ sub bubbleSort( @ ) {
 
 sub binSearch($@) {
     my ($search, @arr) = @_;
-    # 0 - текущий индекс, 1 - макс., 2 - мин.
-    my @index = (undef, $#arr, 0);
+    my @index = (undef, $#arr, 0); # 0 - текущий индекс, 1 - макс., 2 - мин.
     
     while (@index[-1] <= $index[1]) {
-        # делим список пополам
-        @index[0] = int((@index[2] + @index[1]) / 2);
+        @index[0] = int((@index[2] + @index[1]) / 2); # делим список пополам
 
         # если нужный нам элемент в середине списка возвращаем "MATCH"
         return "MATCH" if (@arr[$index[0]] == $search);
@@ -27,5 +25,6 @@ sub binSearch($@) {
         # если нужный элемент меньше индекса, то макс. = середина списка - 1, если больше, то мин. = середина списка + 1
         $search < @arr[$index[0]] ? $index[1] = $index[0] - 1 : $index[2] = $index[0] + 1;
     }
+
     return "NOT_MATCH";
 };
