@@ -5,7 +5,7 @@ sub bubbleSort( @ ) {
 
     for my $i ( @arr ) {
         for ( my $r = 0; $r < @arr - 1; $r++ ) {
-            @arr[$r, $r+1] = @arr[$r+1, $r] if $arr[$r] > $arr[$r+1];
+            @arr[$r, $r+1] = @arr[$r+1, $r] if @arr[$r] > @arr[$r+1];
         };
     };
 
@@ -28,3 +28,8 @@ sub binSearch($@) {
 
     return "NOT_MATCH";
 };
+
+my @unsorted = ( qw/ 7 1 3 4 2 4 6 5 5 / );
+my $search = 6;
+my $result = binSearch($search, bubbleSort(@unsorted));
+print "$result\n";
